@@ -5,17 +5,19 @@ var fs = require('fs');
 var Spotify = require('node-spotify-api');
 
 
+//argument variables
+var command = process.argv[2];
+var name = process.argv[3];
 
-
-
+//spotify magic
 var spotify = new Spotify(keys.spotify);
-// spotify-this-song function
-//node liri.js  spotify-this-song 'song name here'
-function song(name = 'The Sign') {
+
+function song() {
     spotify.search({
         type: 'track',
+        //the query refers back to the argument variables
         query: name,
-        limit: 1
+        limit: 5
     }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
@@ -33,8 +35,22 @@ function song(name = 'The Sign') {
     });
 };
 
-function  
+// spotify-this-song function
+//node liri.js  spotify-this-song 'song name here'
 
+
+
+switch (command) {
+
+
+    case 'spotify-this-song':
+        song();
+        break;
+
+
+    default:
+        console.log("Invalid request please try again.")
+}
 
 
 
