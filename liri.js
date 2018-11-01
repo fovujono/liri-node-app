@@ -48,11 +48,13 @@ function movie() {
     if (!name) {
         name = 'Mr Nobody'
     }
+    //use the docs to make request
     request(`http://www.omdbapi.com/?t=${name}&apikey=${movieKey}`, function(err, repsonse, body) {
     {
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
+            //console.log all the information required
                 console.log("Title: " + JSON.parse(body).Title)
                 console.log("Year released: " + JSON.parse(body).Year)
                 console.log("IMDB Rating: " + JSON.parse(body).imdbRating)
@@ -68,16 +70,31 @@ function movie() {
     
 };
 
-//switch the based on what the user inputs
+function random(){
+    //use fs to get what is in the random.text and push it into a new file using liri magic
+}
+
+//switch the command based on what the user inputs
 switch (command) {
 
-
+    
     case 'spotify-this-song':
         song();
         break;
+
     case 'movie-this':
         movie();
         break;
+    
+    case 'concert-this':
+        concert();
+        break;
+
+    case 'do-what-it-says':
+        random();
+        break;
+
+
 
     default:
         console.log("Invalid request please try again.")
