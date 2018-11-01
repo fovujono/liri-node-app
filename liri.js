@@ -70,6 +70,9 @@ function movie() {
     
 };
 
+function concert(){
+
+}
 function random(){
     //use fs to get what is in the random.text and push it into a new file using liri magic
 }
@@ -101,18 +104,5 @@ switch (command) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// movie-this
-
-// concert-this
 
 // do-what-it-says

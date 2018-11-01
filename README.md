@@ -17,8 +17,15 @@ Liri is a Language Interpretation and Recognition Interface. LIRI takes in your 
 
 * followed by an song, movie, or concert you would like to attend. 
 
-Example :
-![Image1](images/#1.PNG)
+Example for Song:
+![Example-1](images/example.png)
+
+![Example-2](images/example2.png)
+
+
+Example for Movie:
+![Example-3](images/example3.png)
+![Example-4](images/example4.png)
 
 
 
