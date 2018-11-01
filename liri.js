@@ -3,7 +3,8 @@ require('dotenv').config();
 var keys = require('./keys.js');
 var fs = require('fs');
 var Spotify = require('node-spotify-api');
-var request = require('request')
+var request = require('request');
+var moment = require('moment');
 
 
 //argument variables
@@ -70,9 +71,13 @@ function movie() {
     
 };
 
+// this function will get information from the bandsintown api to display your artist up and coming acts
 function concert(){
 
+
 }
+
+// do-what-it-says
 function random(){
     //use fs to get what is in the random.text and push it into a new file using liri magic
 }
@@ -97,12 +102,9 @@ switch (command) {
         random();
         break;
 
-
-
     default:
         console.log("Invalid request please try again.")
 }
 
 
 
-// do-what-it-says
