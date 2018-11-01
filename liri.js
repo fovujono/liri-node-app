@@ -13,6 +13,9 @@ var name = process.argv[3];
 var spotify = new Spotify(keys.spotify);
 
 function song() {
+    if(!name){
+        name = 'The Sign'
+    }
     spotify.search({
         type: 'track',
         //the query refers back to the argument variables
