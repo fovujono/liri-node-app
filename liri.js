@@ -3,6 +3,7 @@ require('dotenv').config();
 var keys = require('./keys.js');
 var fs = require('fs');
 var Spotify = require('node-spotify-api');
+var request = require('request')
 
 
 //argument variables
@@ -14,35 +15,58 @@ var spotify = new Spotify(keys.spotify);
 
 function song() {
     //need a default song if user doesn't input one
-    if(!name){
-        name = 'The Sign'
+    if (!name) {
+        name = 'The Sign Ace of Base'
     }
     spotify.search({
-        type: 'track',
-        //the query refers back to the argument variable process.argv[3]
-        query: name,
-        limit: 5
-    },
-     function (err, data) {
-        if (err) {
-            return console.log('Error occurred: ' + err);
-        }
-        console.log("\n-----------------------------------------------")
-        // display artist 
-        console.log("Artist(s): " + data.tracks.items[0].album.artists[0].name)
-        // display song name
-        console.log("Song Name: " + data.tracks.items[0].name)
-        // display link of song from spotify
-        console.log("Album Link: " + data.tracks.items[0].album.external_urls.spotify)
-        // display album that song is from
-        console.log("Album Name: " + data.tracks.items[0].album.name)
-        console.log("-----------------------------------------------\n")
-    });
+            type: 'track',
+            //the query refers back to the argument variable process.argv[3]
+            query: name,
+            limit: 5
+        },
+        function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            console.log("\n-----------------------------------------------")
+            // display artist 
+            console.log("Artist(s): " + data.tracks.items[0].album.artists[0].name)
+            // display song name
+            console.log("Song Name: " + data.tracks.items[0].name)
+            // display link of song from spotify
+            console.log("Album Link: " + data.tracks.items[0].album.external_urls.spotify)
+            // display album that song is from
+            console.log("Album Name: " + data.tracks.items[0].album.name)
+            console.log("-----------------------------------------------\n")
+        });
 };
 
-// spotify-this-song function
-//node liri.js  spotify-this-song 'song name here'
-
+//movie function for the OMDb API
+function movie() {
+    var movieKey = keys.omdb.id
+    //default movie
+    if (!name) {
+        name = 'Mr Nobody'
+    }
+    request(`http://www.omdbapi.com/?t=${name}&apikey=${movieKey}`, function(err, repsonse, body) {
+    {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+                console.log("Title: " + JSON.parse(body).Title)
+                console.log("Year released: " + JSON.parse(body).Year)
+                console.log("IMDB Rating: " + JSON.parse(body).imdbRating)
+                console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value)
+                console.log("Country(s): " + JSON.parse(body).Country)
+                console.log("Language(s): " + JSON.parse(body).Language)
+                console.log("Plot: " + JSON.parse(body).Plot)
+                console.log("Actors: " + JSON.parse(body).Actors)
+                console.log("-----------------------------------------------\n")
+            }
+        
+        })
+    
+};
 
 //switch the based on what the user inputs
 switch (command) {
@@ -51,7 +75,9 @@ switch (command) {
     case 'spotify-this-song':
         song();
         break;
-
+    case 'movie-this':
+        movie();
+        break;
 
     default:
         console.log("Invalid request please try again.")
