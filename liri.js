@@ -7,21 +7,23 @@ var Spotify = require('node-spotify-api');
 
 //argument variables
 var command = process.argv[2];
-var name = process.argv[3];
+var name = process.argv.slice(3).join(" ");
 
 //spotify magic
 var spotify = new Spotify(keys.spotify);
 
 function song() {
+    //need a default song if user doesn't input one
     if(!name){
         name = 'The Sign'
     }
     spotify.search({
         type: 'track',
-        //the query refers back to the argument variables
+        //the query refers back to the argument variable process.argv[3]
         query: name,
         limit: 5
-    }, function (err, data) {
+    },
+     function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
@@ -42,7 +44,7 @@ function song() {
 //node liri.js  spotify-this-song 'song name here'
 
 
-
+//switch the based on what the user inputs
 switch (command) {
 
 
