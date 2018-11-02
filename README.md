@@ -13,19 +13,20 @@ Liri is a Language Interpretation and Recognition Interface. LIRI takes in your 
 
 * opening terminal and typing,"  npm i " no quotes. Which will install the packages needed from the package.json files. 
 
+
 * then after the packages are installed you can navigate to the liri.js folder in terminal and use one of the following commands to search up what you want: spotify-this-song, movie-this.
 
 * followed by an song, movie, or concert you would like to attend. 
 
 Example for Song:
-![Example-1](images/example.png)
+![Example-1](images/example.PNG)
 
-![Example-2](images/example2.png)
+![Example-2](images/example2.PNG)
 
 
 Example for Movie:
-![Example-3](images/example3.png)
-![Example-4](images/example4.png)
+![Example-3](images/example3.PNG)
+![Example-4](images/example4.PNG)
 
 
 

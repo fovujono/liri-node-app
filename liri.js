@@ -79,7 +79,7 @@ function concert(){
 
 // do-what-it-says
 function random(){
-    //use fs to get what is in the random.text and push it into a new file using liri magic
+    //use fs to get what is in the random.text and push it into a new file named using liri magic
 }
 
 //switch the command based on what the user inputs
