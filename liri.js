@@ -80,7 +80,19 @@ function concert(){
 // do-what-it-says
 function random(){
     //use fs to get what is in the random.text and push it into a new file named using liri magic
+    fs.readFile("random.txt","utf8", function(err, data){
+        if(err){
+            console.log(err);
+        }
+        else{
+        console.log(data)
+        }
+     
+    })
 }
+
+
+
 
 //switch the command based on what the user inputs
 switch (command) {

@@ -18,15 +18,27 @@ Liri is a Language Interpretation and Recognition Interface. LIRI takes in your 
 
 * followed by an song, movie, or concert you would like to attend. 
 
-Example for Song:
+Example for Songs:
+
 ![Example-1](images/example.PNG)
+
 
 ![Example-2](images/example2.PNG)
 
 
-Example for Movie:
+
+
+Example for Movies:
+
+
 ![Example-3](images/example3.PNG)
+
+
 ![Example-4](images/example4.PNG)
 
+
+If you use the command do-what-it-says the application will grab the information from the random.txt file and present it to you. In the future I would like to make the app so that it can append said information into a new file automatically. 
+
+![Example-5](images/example5.PNG)
 
 
